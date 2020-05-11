@@ -111,7 +111,7 @@ Write-Host ($writeEmptyLine + "# RDP printer mapping disabled" + $writeSeperator
 
 ## 
 
-If ($WindowsBuildNumber -eq $windowsServer2019)
+If ($windowsBuildNumber -eq $windowsServer2019)
 	{
 		New-ItemProperty -Path $regkeyServerManager -Name 'DoNotPopWACConsoleAtSMLaunch' -PropertyType 'DWord' -Value '1' -Force | Out-Null
 		Write-Host ($writeEmptyLine + "# WAC pop-up disabled in Server Manager" + $writeSeperator + $time) -foregroundcolor $foregroundColor1 $writeEmptyLine 
@@ -218,7 +218,7 @@ Write-Host ($writeEmptyLine + "# Interactive Login set to - Do not display last 
 
 ## Set Windows Server 2016 or 2019 Automatic Virtual Machine Activation (AVMA) key
 
-If ($WindowsBuildNumber -eq $windowsServer2016)
+If ($windowsBuildNumber -eq $windowsServer2016)
 	{
 		slmgr /ipk C3RCX-M6NRP-6CXC9-TW2F2-4RHYD
 		Write-Host ($writeEmptyLine + "# Windows Server 2016 Standard AVMA key set" + $writeSeperator + $time) -foregroundcolor $foregroundColor1 $writeEmptyLine 
