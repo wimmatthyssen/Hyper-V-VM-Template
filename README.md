@@ -6,11 +6,11 @@ The automate and ease up the template creation process, I wrote some PowerShell 
 
 Currenently this repository holds the following PowerShell scritps:
 
-Template_Customization_Windows_Server_2016_2019; BgInfo_Automated_Windows_Server_2012_R2; BgInfo_Automated_Windows_Server_2016_2019
+Template_Customization_Windows_Server_2016_2019; BgInfo_Automated_Windows_Server_2012_R2; BgInfo_Automated_Windows_Server_2016_2019_2022
 
 More information about the Template Customization Windows Server 2016/2019 script can be found on my blog: https://wmatthyssen.com/2020/05/11/powershell-set-customizations-for-a-windows-server-2016-or-2019-base-image/
 
 More information about the BgInfo 2012 R2 script can be found on my blog: https://wmatthyssen.com/2019/09/11/powershell-bginfo-automation-script-for-windows-server-2012-r2/
 
-More information about the BgInfo 2016/2019 script can be found on my blog: https://wmatthyssen.com/2019/09/09/powershell-bginfo-automation-script-for-windows-server-2016-2019/
+More information about the BgInfo 2016/2019/2022 script can be found on my blog: https://wmatthyssen.com/2019/09/09/powershell-bginfo-automation-script-for-windows-server-2016-2019/
 
