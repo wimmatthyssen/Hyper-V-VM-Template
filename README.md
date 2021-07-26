@@ -8,7 +8,7 @@ Because I do a lot of research and testing, and therefore use a lot of different
 
 Currenently this repository holds the following PowerShell scritps:
 
-Template_Customization_Windows_Server_2016_2019; Deploy-BgInfo-WS2012-R2; BgInfo_Automated_Windows_Server_2016_2019_2022
+Template_Customization_Windows_Server_2016_2019; Deploy-BgInfo-WS2012-R2; Deploy-BgInfo-WS2016-WS2019-WS2022
 
 More information about the Template Customization Windows Server 2016/2019 script can be found on my blog: https://wmatthyssen.com/2020/05/11/powershell-set-customizations-for-a-windows-server-2016-or-2019-base-image/
 
