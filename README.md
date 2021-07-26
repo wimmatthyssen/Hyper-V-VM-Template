@@ -1,8 +1,10 @@
-# Hyper-V_VM_Template
+# Hyper-V-VM-Template
+
+This repository contains PowerShell scripts used to automate and ease up a Hyper-V VM template creation process. 
+
+First of all to save time, but also to reduce errors and to ensure consistency by eliminating the need for repetitive configuration changes and performance tweaks.
 
 Because I do a lot of research and testing, and therefore use a lot of different virtual machines (VM), which get build and rebuild, I mostly deploy them from a pre-configured template (base image or golden image).
-
-The automate and ease up the template creation process, I wrote some PowerShell scripts. First of all to save time, but also to reduce errors and to ensure consistency by eliminating the need for repetitive configuration changes and performance tweaks.
 
 Currenently this repository holds the following PowerShell scritps:
 
