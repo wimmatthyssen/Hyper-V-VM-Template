@@ -104,8 +104,8 @@ Write-Host ($writeEmptyLine + "# logon.bgi available" + $writeSeperatorSpaces + 
 
 ## Create BgInfo Registry Key to AutoStart
 
-If ($regKeyExists -eq $True){Write-Host ($writeEmptyLine + "BgInfo regkey exists, script wil go on" + $writeSeperator + $time)`
--foregroundcolor $foregroundColor2 $writeEmptyLine
+If ($regKeyExists -eq $True){Write-Host ($writeEmptyLine + "# BgInfo regkey exists, script wil go on" + $writeSeperatorSpaces + $currentTime)`
+-foregroundcolor $foregroundColor1 $writeEmptyLine
 }Else{
 New-ItemProperty -Path $bgInfoRegPath -Name $bgInfoRegkey -PropertyType $bgInfoRegType -Value $bgInfoRegkeyValue
 
@@ -123,7 +123,7 @@ Write-Host ($writeEmptyLine + "# BgInfo has ran for the first time" + $writeSepe
 
 ## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Exit PowerShell window 2 seconds after completion
+## Exit PowerShell window 3 seconds after completion
 
 Write-Host ($writeEmptyLine + "# Script completed, the PowerShell window will close in 3 seconds" + $writeSeperatorSpaces + $currentTime)`
 -foregroundcolor $foregroundColor1 $writeEmptyLine
@@ -131,3 +131,6 @@ Start-Sleep 3
 stop-process -Id $PID 
 
 ## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
