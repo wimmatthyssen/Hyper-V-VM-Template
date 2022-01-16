@@ -77,7 +77,7 @@ if ($isAdministrator -eq $false)
 
 ## Start script execution
 
-Write-Host ($writeEmptyLine + "# Script started. Without any errors, it will need around 1 minute to complete" + $writeSeperatorSpaces + $currentTime)`
+Write-Host ($writeEmptyLine + "# BgInfo deployment script started." + $writeSeperatorSpaces + $currentTime)`
 -foregroundcolor $foregroundColor1 $writeEmptyLine 
  
 ## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
