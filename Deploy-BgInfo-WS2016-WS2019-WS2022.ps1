@@ -5,20 +5,23 @@ A script used to download, install and configure the latest BgInfo version on a 
 
 .DESCRIPTION
 
-A script used to download, install and configure the latest BgInfo version (v4.28) on a Windows Server 2016, 2019 or 2022. The BgInfo folder will be created on the C: drive if the folder does not already exist. 
-Then the latest BgInfo.zip file will be downloaded and extracted in the BgInfo folder. The LogonBgi.zip file which holds the preferred settings will also be downloaded and extracted to the BgInfo folder. 
-After extraction both .zip files will be deleted. A registry key (regkey) to AutoStart the BgInfo tool in combination with the logon.bgi config file will be created. At the end of the script BgInfo will 
-be started for the first time and the PowerShell window will be closed.
+A script used to download, install and configure the latest BgInfo version (v4.28) on a Windows Server 2016, 2019 or 2022. 
+The BgInfo folder will be created on the C: drive if the folder does not already exist. 
+Then the latest BgInfo.zip file will be downloaded and extracted in the BgInfo folder. 
+The LogonBgi.zip file which holds the preferred settings will also be downloaded and extracted to the BgInfo folder. 
+After extraction both .zip files will be deleted. 
+A registry key (regkey) to AutoStart the BgInfo tool in combination with the logon.bgi config file will be created. 
+At the end of the script BgInfo will be started for the first time and the PowerShell window will be closed.
 
 .NOTES
 
 File Name:      Deploy-BgInfo-WS2016-WS2019-WS2022.ps1
 Created:        08/09/2019
-Last modified:  26/07/2021
+Last modified:  16/01/2022
 Author:         Wim Matthyssen
 PowerShell:     5.1 or above 
 Requires:       -RunAsAdministrator
-OS:             Windows Server 2016, Windows Server 2019 and Windows Server 2022 (Preview)
+OS:             Windows Server 2016, Windows Server 2019 and Windows Server 2022
 Version:        3.0
 Action:         Change variables were needed to fit your needs
 Disclaimer:     This script is provided "As Is" with no warranties.
@@ -29,7 +32,7 @@ Disclaimer:     This script is provided "As Is" with no warranties.
 
 .LINK
 
-https://tinyurl.com/y3wmsh7o
+https://wmatthyssen.com/2019/09/09/powershell-bginfo-automation-script-for-windows-server-2016-2019/
 #>
 
 ## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -58,23 +61,43 @@ $writeSeperatorSpaces = " - "
 
 ## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-## Download started
+## Check if PowerShell is running as Administrator, otherwise exit the script
 
-Write-Host ($writeEmptyLine + "# BgInfo download started" + $writeSeperatorSpaces + $currentTime)`
+$currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
+$isAdministrator = $currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+
+if ($isAdministrator -eq $false) 
+{
+    Write-Host ($writeEmptyLine + "# Please run PowerShell as Administrator" + $writeSeperatorSpaces + $currentTime)`
+    -foregroundcolor $foregroundColor1 $writeEmptyLine
+    exit
+}
+ 
+## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+## Start script execution
+
+Write-Host ($writeEmptyLine + "# Script started. Without any errors, it will need around 1 minute to complete" + $writeSeperatorSpaces + $currentTime)`
 -foregroundcolor $foregroundColor1 $writeEmptyLine 
-
+ 
 ## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ## Create BgInfo folder on C: if it not exists, else delete it's content
 
-If (!(Test-Path -Path $bgInfoFolder)){New-Item -ItemType $itemType -Force -Path $bgInfoFolder
+If (!(Test-Path -Path $bgInfoFolder))
+{
+   New-Item -ItemType $itemType -Force -Path $bgInfoFolder
    Write-Host ($writeEmptyLine + "# BgInfo folder created" + $writeSeperatorSpaces + $currentTime)`
    -foregroundcolor $foregroundColor2 $writeEmptyLine
-}Else {Write-Host ($writeEmptyLine + "# BgInfo folder already exists" + $writeSeperatorSpaces + $currentTime)`
-   -foregroundcolor $foregroundColor1 $writeEmptyLine
+}
+Else
+{
+   Write-Host ($writeEmptyLine + "# BgInfo folder already exists" + $writeSeperatorSpaces + $currentTime)`
+   -foregroundcolor $foregroundColor2 $writeEmptyLine
    Remove-Item $bgInfoFolderContent -Force -Recurse -ErrorAction SilentlyContinue
    Write-Host ($writeEmptyLine + "# Content existing BgInfo folder deleted" + $writeSeperatorSpaces + $currentTime)`
-   -foregroundcolor $foregroundColor1 $writeEmptyLine}
+   -foregroundcolor $foregroundColor2 $writeEmptyLine
+}
 
 ## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -104,13 +127,18 @@ Write-Host ($writeEmptyLine + "# logon.bgi available" + $writeSeperatorSpaces + 
 
 ## Create BgInfo Registry Key to AutoStart
 
-If ($regKeyExists -eq $True){Write-Host ($writeEmptyLine + "# BgInfo regkey exists, script wil go on" + $writeSeperatorSpaces + $currentTime)`
--foregroundcolor $foregroundColor1 $writeEmptyLine
-}Else{
-New-ItemProperty -Path $bgInfoRegPath -Name $bgInfoRegkey -PropertyType $bgInfoRegType -Value $bgInfoRegkeyValue
+If ($regKeyExists -eq $True)
+{
+   Write-Host ($writeEmptyLine + "# BgInfo regkey exists, script wil go on" + $writeSeperatorSpaces + $currentTime)`
+   -foregroundcolor $foregroundColor1 $writeEmptyLine
+}
+Else
+{
+   New-ItemProperty -Path $bgInfoRegPath -Name $bgInfoRegkey -PropertyType $bgInfoRegType -Value $bgInfoRegkeyValue
 
-Write-Host ($writeEmptyLine + "# BgInfo regkey added" + $writeSeperatorSpaces + $currentTime)`
--foregroundcolor $foregroundColor2 $writeEmptyLine}
+   Write-Host ($writeEmptyLine + "# BgInfo regkey added" + $writeSeperatorSpaces + $currentTime)`
+   -foregroundcolor $foregroundColor2 $writeEmptyLine
+}
 
 ## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -131,6 +159,3 @@ Start-Sleep 3
 stop-process -Id $PID 
 
 ## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
