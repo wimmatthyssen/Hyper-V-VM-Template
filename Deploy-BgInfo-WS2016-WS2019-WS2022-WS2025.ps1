@@ -34,7 +34,7 @@ Disclaimer:    This script is provided "As Is" without any warranties.
 
 .LINK
 
-https://wmatthyssen.com/2019/09/09/powershell-bginfo-automation-script-for-windows-server-2016-2019/
+https://wmatthyssen.com/2025/04/07/powershell-script-bginfo-deployment-script-for-windows-server-2025/
 #>
 
 ## ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
