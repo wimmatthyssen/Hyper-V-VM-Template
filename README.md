@@ -10,7 +10,7 @@ Currently, this repository includes the following PowerShell scripts:
 
 - **Deploy-BgInfo-WS2012-R2.ps1**
 
-  More information about this script used to build a management groups tree structure can be found on my blog: https://wmatthyssen.com/2022/04/04/azure-powershell-script-create-a-management-group-tree-hierarchy/
+  More information about this script used to deploy BgInfo on a Windows Server 2012 R2 can be found on my blog: https://wmatthyssen.com/2019/09/11/powershell-bginfo-automation-script-for-windows-server-2012-r2/
 
 - **Deploy-BgInfo-WS2016-WS2019-WS2022-WS2025.ps1**
 
