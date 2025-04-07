@@ -14,5 +14,5 @@ More information about the Template Customization Windows Server 2016/2019 scrip
 
 More information about the BgInfo 2012 R2 script can be found on my blog: https://wmatthyssen.com/2019/09/11/powershell-bginfo-automation-script-for-windows-server-2012-r2/
 
-More information about the BgInfo 2016/2019/2022 script can be found on my blog: https://wmatthyssen.com/2019/09/09/powershell-bginfo-automation-script-for-windows-server-2016-2019/
+More information about the BgInfo 2016/2019/2022/2025 script can be found on my blog: https://wmatthyssen.com/2019/09/09/powershell-bginfo-automation-script-for-windows-server-2016-2019/
 
