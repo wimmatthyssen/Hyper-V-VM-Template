@@ -6,7 +6,7 @@ The goal is to save time, reduce errors, and ensure consistency by eliminating t
 
 Since I perform extensive research and testing, I often work with a variety of virtual machines (VMs) that are built and rebuilt frequently. As a result, I primarily deploy them from a pre-configured template (base or golden image).
 
-Currently, this repository includes the following PowerShell scripts
+Currently, this repository includes the following PowerShell scripts:
 
 - **Deploy-BgInfo-WS2012-R2.ps1**
 
