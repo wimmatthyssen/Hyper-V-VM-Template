@@ -16,7 +16,7 @@ Currently, this repository includes the following PowerShell scripts
 
   More information about this script used to build a management groups tree structure can be found on my blog: https://wmatthyssen.com/2022/04/04/azure-powershell-script-create-a-management-group-tree-hierarchy/
 
-  - **Template_Customization_Windows_Server_2016_2019.ps1**
+- **Template_Customization_Windows_Server_2016_2019.ps1**
 
   More information about this script used to build a management groups tree structure can be found on my blog: https://wmatthyssen.com/2022/04/04/azure-powershell-script-create-a-management-group-tree-hierarchy/
 
